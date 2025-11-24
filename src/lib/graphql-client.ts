@@ -1,3 +1,5 @@
+import { MAGENTO_ENDPOINT } from "./magento/constants";
+
 type RequestOptions = {
   endpoint: string;
   query: string;
@@ -21,17 +23,32 @@ export async function graphqlFetch<TData>({
   variables,
   headers,
   cache = "no-store",
-  next,
+  next
 }: RequestOptions): Promise<TData> {
-  const response = await fetch(endpoint, {
+  const normalizedHeaders = normalizeHeaders(headers);
+  const mergedHeaders = {
+    "Content-Type": "application/json",
+    ...normalizedHeaders
+  };
+
+  const shouldProxy =
+    typeof window !== "undefined" && endpoint === MAGENTO_ENDPOINT;
+
+  const fetchTarget = shouldProxy ? "/api/magento" : endpoint;
+  const body = shouldProxy
+    ? JSON.stringify({
+        query,
+        variables,
+        headers: mergedHeaders
+      })
+    : JSON.stringify({ query, variables });
+
+  const response = await fetch(fetchTarget, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      ...headers,
-    },
-    body: JSON.stringify({ query, variables }),
-    cache,
-    next,
+    headers: shouldProxy ? { "Content-Type": "application/json" } : mergedHeaders,
+    body,
+    cache: shouldProxy ? undefined : cache,
+    next: shouldProxy ? undefined : next
   });
 
   const json = (await response.json()) as GraphQLResponse<TData>;
@@ -55,4 +72,20 @@ export async function graphqlFetch<TData>({
   }
 
   return json.data;
+}
+
+function normalizeHeaders(
+  headers?: HeadersInit
+): Record<string, string> | undefined {
+  if (!headers) return undefined;
+  if (headers instanceof Headers) {
+    return Object.fromEntries(headers.entries());
+  }
+  if (Array.isArray(headers)) {
+    return headers.reduce<Record<string, string>>((acc, [key, value]) => {
+      acc[key] = value;
+      return acc;
+    }, {});
+  }
+  return headers as Record<string, string>;
 }
