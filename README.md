@@ -94,3 +94,10 @@ npm run build && npm run start
 ## Vercel Deployment
 
 live preview: - https://benuta-store.vercel.app/
+
+## Setbacks: Unable to Achieve Price Filtering
+
+- __Backend sort/filter:__ Used Magento `price_asc/price_desc` and `filter.price` but results were inconsistent with UI expectations.
+- **Client fallback:** Tried `filterProductsByPrice` / `sortProductsByPrice` locally—worked visually but desynced totals and counts from Magento.
+- **Search keyword trial:** Added `$search` for the winter slider, but Magento didn’t return matches; removed to avoid overfetching.
+- **Hybrid approach:** Kept Magento sorting for canonical counts while deriving `saleItems` client-side for promo sliders—final approach balances accuracy with flexibility.
