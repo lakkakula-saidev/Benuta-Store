@@ -2,8 +2,8 @@
 
 import { useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { fetchMagentoProducts } from "../lib/magento";
 import type { ProductFilter } from "../components/product-slider";
-import type { ProductSummary } from "../components/product-card";
 
 export function useProductSlider({
   sort,
@@ -16,31 +16,16 @@ export function useProductSlider({
   filter?: ProductFilter;
   minimumItems?: number;
 }) {
-  const { data, isLoading, isError } = useQuery<{
-    items: ProductSummary[];
-    saleItems: ProductSummary[];
-    totalCount: number;
-    colorOptions: Array<{ label: string; value: string; count?: number }>;
-    roomOptions: Array<{ label: string; value: string; count?: number }>;
-    materialOptions: Array<{ label: string; value: string; count?: number }>;
-    sizeOptions: Array<{ label: string; value: string; count?: number }>;
-  }>({
+  const { data, isLoading, isError } = useQuery({
     queryKey: ["product-slider", categoryUids, sort, filter],
-    queryFn: async () => {
-      const searchParams = new URLSearchParams({
-        pageSize: "30",
-        page: "1",
+    queryFn: () =>
+      fetchMagentoProducts({
+        page: 1,
+        pageSize: 30,
         sort,
-        ...(categoryUids && { categoryUids: categoryUids.join(",") }),
-        ...(filter?.color && { color: filter.color })
-      });
-
-      const response = await fetch(`/api/products?${searchParams}`);
-      if (!response.ok) {
-        throw new Error("Failed to fetch products");
-      }
-      return response.json();
-    }
+        categoryUids,
+        color: filter?.color
+      })
   });
 
   const sale = filter?.sale;
