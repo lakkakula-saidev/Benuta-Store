@@ -119,9 +119,9 @@ export function ProductDetailClient({
   }, [product.name]);
 
   return (
-    <main className="bg-[#f2f2ef] pt-20">
+    <main className="bg-[#f2f2ef] pt-20 flex min-h-screen flex-col">
       <NavBar />
-      <div className="w-full">
+      <div className="w-full flex-1">
         <div
           className={`${pageContainerClasses} flex flex-col gap-8 py-8 lg:flex-row lg:items-start`}
         >
@@ -176,8 +176,8 @@ export function ProductDetailClient({
             minimumItems={8}
           />
         </section>
-        <Footer />
       </div>
+      <Footer />
     </main>
   );
 }

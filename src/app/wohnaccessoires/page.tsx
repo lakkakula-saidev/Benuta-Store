@@ -8,12 +8,14 @@ const ACCESSORIES_CATEGORY_UID = "MTI1Mg=="; // Home Accessories
 
 export default function WohnAccessoiresPage() {
   return (
-    <main className="bg-[#f2f2ef] pt-20">
+    <main className="bg-[#f2f2ef] pt-20 flex min-h-screen flex-col">
       <NavBar />
-      <CatalogPage
-        title="Wohn Accessoires"
-        categoryUids={[ACCESSORIES_CATEGORY_UID]}
-      />
+      <div className="flex-1">
+        <CatalogPage
+          title="Wohn Accessoires"
+          categoryUids={[ACCESSORIES_CATEGORY_UID]}
+        />
+      </div>
       <Footer />
     </main>
   );

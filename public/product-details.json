@@ -1,0 +1,25 @@
+{
+  "default": {
+    "title": "Produktdetails",
+    "productFields": [
+      { "label": "Artikelnummer", "field": "sku" },
+      { "label": "Produktname", "field": "name" },
+      { "label": "Verfügbarkeit", "field": "availability" }
+    ],
+    "entries": {
+      "Wohnraum": "Schlafzimmer, Wohnzimmer",
+      "Fußbodenheizung": "Ja",
+      "Marke": "benuta Pure",
+      "Design": "Einfarbig",
+      "Florhöhe": "Flachgewebe",
+      "Dicke": "1-5 mm",
+      "Flormaterial": "80% Wolle, 20% Baumwolle",
+      "Rückseitenmaterial": "Wolle/Baumwolle",
+      "Zertifikat": "Care & Fair",
+      "Pflegehinweise": "Nicht waschen",
+      "Herkunftsland": "Indien",
+      "Herstellungsart": "Handgewebt",
+      "Distributor": "benuta GmbH\nHohe Str. 87\nBonn, Nordrhein-Westfalen, DE, 53119\ngpsr@benuta.com"
+    }
+  }
+}

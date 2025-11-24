@@ -8,9 +8,11 @@ const RUGS_CATEGORY_UID = "MTU2NA=="; // Buy Rugs category
 
 export default function TeppichePage() {
   return (
-    <main className="bg-[#f2f2ef] pt-20">
+    <main className="bg-[#f2f2ef] pt-20 flex min-h-screen flex-col">
       <NavBar />
-      <CatalogPage title="Teppiche" categoryUids={[RUGS_CATEGORY_UID]} />
+      <div className="flex-1">
+        <CatalogPage title="Teppiche" categoryUids={[RUGS_CATEGORY_UID]} />
+      </div>
       <Footer />
     </main>
   );

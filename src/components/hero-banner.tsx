@@ -96,7 +96,7 @@ export function HeroBanner() {
           </p>
           <div className="flex flex-wrap gap-3">
             <a
-              href={hero.ctaUrl ?? "#products"}
+              href={hero.ctaUrl ?? "#aktion"}
               className={`rounded-full px-5 py-3 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg ${
                 isLight ? "bg-white text-slate-900" : "bg-slate-900 text-white"
               }`}
@@ -104,7 +104,7 @@ export function HeroBanner() {
               {hero.ctaLabel ?? "Mehr erfahren"}
             </a>
             <a
-              href="#products"
+              href="#beliebte-produkte"
               className={`rounded-full border px-5 py-3 text-sm font-semibold transition hover:-translate-y-0.5 ${
                 isLight
                   ? "border-white/70 text-white hover:bg-white/10"

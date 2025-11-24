@@ -14,6 +14,7 @@ export interface ProductFilter {
 }
 
 interface ProductSliderProps {
+  id?: string;
   title?: string;
   categoryUids?: string[];
   sort?: "price_asc" | "price_desc";
@@ -22,6 +23,7 @@ interface ProductSliderProps {
 }
 
 export function ProductSlider({
+  id,
   title = "Entdecke unsere Produkte",
   categoryUids,
   sort = "price_asc",
@@ -42,7 +44,7 @@ export function ProductSlider({
   const goNext = () => setIndex((prev) => Math.min(prev + 1, maxIndex));
 
   return (
-    <section className="bg-[#f2f2ef] section-padding">
+    <section id={id} className="bg-[#f2f2ef] section-padding">
       <div className="container-max flex flex-col gap-6">
         <SliderHeader
           title={title}
