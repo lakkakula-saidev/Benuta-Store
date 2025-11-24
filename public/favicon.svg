@@ -1,0 +1,14 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Clean geometric design -->
+  <rect width="32" height="32" rx="6" fill="#2D3748"/>
+
+  <!-- Main geometric shape -->
+  <g transform="translate(8,8)">
+    <!-- Hexagon -->
+    <path d="M8 2L14 5V11L8 14L2 11V5L8 2Z" fill="#F2F2EF" stroke="#2D3748" stroke-width="1.5"/>
+
+    <!-- Inner pattern -->
+    <circle cx="8" cy="7.5" r="2" fill="#2D3748"/>
+    <rect x="6" y="5.5" width="4" height="4" rx="0.5" fill="none" stroke="#2D3748" stroke-width="1"/>
+  </g>
+</svg>

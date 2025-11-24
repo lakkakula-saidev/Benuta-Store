@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero-fade {
+  animation: heroFadeIn 0.9s ease forwards;
+}
+
+.animate-hero-slide {
+  animation: heroFadeIn 1s ease forwards;
+}
+
+@keyframes heroSlideInRight {
+  from {
+    transform: translateX(10%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes heroSlideInLeft {
+  from {
+    transform: translateX(-10%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in-right {
+  animation: heroSlideInRight 0.8s ease forwards;
+}
+
+.animate-slide-in-left {
+  animation: heroSlideInLeft 0.8s ease forwards;
+}
+
+/* Shared utility classes for consistent styling */
+.container-max {
+  @apply mx-auto flex max-w-[1200px];
+}
+
+.page-padding-x {
+  @apply px-5 sm:px-6 lg:px-[50px];
+}
+
+.page-padding-y {
+  @apply py-8;
+}
+
+.section-padding {
+  @apply px-4 pt-12 md:px-6 lg:px-[50px];
+}
