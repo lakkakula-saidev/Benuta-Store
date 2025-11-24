@@ -1,9 +1,4 @@
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
-import {
-  fetchMagentoProducts,
-  fetchMagentoFacets,
-  fetchMagentoProductDetail
-} from "../magento";
 import type { FetchProductsParams } from "../../types/magento";
 
 /**
@@ -12,8 +7,33 @@ import type { FetchProductsParams } from "../../types/magento";
 export function useProducts(params: Omit<FetchProductsParams, "page">) {
   return useInfiniteQuery({
     queryKey: ["products", params],
-    queryFn: ({ pageParam = 1 }) =>
-      fetchMagentoProducts({ ...params, page: pageParam }),
+    queryFn: async ({ pageParam = 1 }) => {
+      const searchParams = new URLSearchParams({
+        pageSize: params.pageSize.toString(),
+        page: pageParam.toString(),
+        sort: params.sort,
+        ...(params.color && { color: params.color }),
+        ...(params.priceRange?.from && {
+          priceFrom: params.priceRange.from.toString()
+        }),
+        ...(params.priceRange?.to && {
+          priceTo: params.priceRange.to.toString()
+        }),
+        ...(params.rooms && { rooms: params.rooms.join(",") }),
+        ...(params.materials && { materials: params.materials.join(",") }),
+        ...(params.sizes && { sizes: params.sizes.join(",") }),
+        ...(params.categoryUids && {
+          categoryUids: params.categoryUids.join(",")
+        }),
+        ...(params.searchKeyword && { searchKeyword: params.searchKeyword })
+      });
+
+      const response = await fetch(`/api/products?${searchParams}`);
+      if (!response.ok) {
+        throw new Error("Failed to fetch products");
+      }
+      return response.json();
+    },
     initialPageParam: 1,
     getNextPageParam: (lastPage, allPages) => {
       const loaded = allPages.length * params.pageSize;
@@ -33,7 +53,18 @@ export function useProducts(params: Omit<FetchProductsParams, "page">) {
 export function useFacets(categoryUids?: string[]) {
   return useQuery({
     queryKey: ["facets", categoryUids?.join(",") ?? "all"],
-    queryFn: () => fetchMagentoFacets(categoryUids),
+    queryFn: async () => {
+      const searchParams = new URLSearchParams();
+      if (categoryUids) {
+        searchParams.set("categoryUids", categoryUids.join(","));
+      }
+
+      const response = await fetch(`/api/facets?${searchParams}`);
+      if (!response.ok) {
+        throw new Error("Failed to fetch facets");
+      }
+      return response.json();
+    },
     staleTime: 10 * 60 * 1000
   });
 }
@@ -44,7 +75,18 @@ export function useFacets(categoryUids?: string[]) {
 export function useProductDetail(identifier: string) {
   return useQuery({
     queryKey: ["product", identifier],
-    queryFn: () => fetchMagentoProductDetail(identifier),
+    queryFn: async () => {
+      const response = await fetch(
+        `/api/product/${encodeURIComponent(identifier)}`
+      );
+      if (!response.ok) {
+        if (response.status === 404) {
+          throw new Error("Product not found");
+        }
+        throw new Error("Failed to fetch product details");
+      }
+      return response.json();
+    },
     staleTime: 5 * 60 * 1000
   });
 }

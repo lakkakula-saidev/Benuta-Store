@@ -1,5 +1,16 @@
 # Benuta Store
 
+A modern, production-ready e-commerce platform for Benuta carpets and home accessories, built with Next.js 16, featuring German localization, comprehensive error handling, and seamless API integration.
+
+## ✨ Key Features
+
+- 🛒 **Full E-commerce**: Product catalog, filtering, search, and shopping cart
+- 🌐 **German Localization**: Complete German UI with proper SEO
+- 🔒 **CORS Resolved**: API proxy routes eliminate browser restrictions
+- ⚡ **Performance**: Optimized with React Query caching and Next.js features
+- 🎨 **Modern UI**: Responsive design with Tailwind CSS
+- 🛡️ **Production Ready**: Error boundaries, TypeScript, and comprehensive testing
+
 ## Installation
 
 Install dependencies:
@@ -72,12 +83,14 @@ npm run build && npm run start
 
 ### Technical Features
 
-- **GraphQL Integration**: Type-safe queries with Magento and Contentful
+- **GraphQL Integration**: Type-safe queries with Magento and Contentful via API proxy routes
+- **CORS Resolution**: Server-side API proxy eliminates browser CORS restrictions
 - **State Management**: React Query for server state, custom hooks for UI state
+- **Error Handling**: Comprehensive error boundaries and user-friendly error messages
 - **TypeScript**: Full type safety throughout the application
 - **Tailwind CSS**: Utility-first styling with custom design system
 - **Next.js 16**: App router with server and client components
 
-## Deployment
+## Vercel Deployment
 
-Deploy on Vercel (optional): share your Vercel preview URL (no environment access needed, will update it later)
+live preview: - https://benuta-store.vercel.app/
