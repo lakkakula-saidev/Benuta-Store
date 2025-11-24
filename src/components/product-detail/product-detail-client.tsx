@@ -13,6 +13,7 @@ import {
 } from "../../utils/product-cache";
 import { ProductSlider } from "../product-slider";
 import { Footer } from "../footer";
+import { useRouteLoading } from "../../context/route-loading";
 
 type VariantCandidate = NonNullable<ProductDetail["variantChoices"]>[number];
 
@@ -58,6 +59,7 @@ export function ProductDetailClient({
   }, [product, snapshot]);
 
   const router = useRouter();
+  const { startNavigation } = useRouteLoading();
   const [productDetails, setProductDetails] = useState<{
     title?: string | null;
     productFields?: { label: string; field: string }[] | null;
@@ -82,6 +84,7 @@ export function ProductDetailClient({
     if (!slugToUse) return;
     cacheProductSnapshot(slugToUse, mergedProduct);
     const target = `/p/${encodeURIComponent(slugToUse)}`;
+    startNavigation();
     router.replace(target);
   };
   const images = useMemo(() => {

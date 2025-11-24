@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, type MouseEvent } from "react";
 import { cacheProductSnapshot } from "../utils/product-cache";
 import { colorSwatchClass } from "../utils/color";
 import { useShopLists, ProductListItemInput } from "../context/shop-lists";
 import { IconHeart } from "./icons";
+import { useRouteLoading } from "../context/route-loading";
 
 export type ProductSummary = {
   name: string;
@@ -71,6 +72,7 @@ export function ProductCard({ product }: { product: ProductSummary }) {
       ? product.variants!.length - 6
       : 0;
 
+  const { startNavigation } = useRouteLoading();
   const baseSlug = product.urlKey ?? product.sku;
   const activeSlug = activeVariant?.urlKey ?? activeVariant?.sku ?? baseSlug;
 
@@ -80,6 +82,21 @@ export function ProductCard({ product }: { product: ProductSummary }) {
     } else if (baseSlug) {
       cacheProductSnapshot(baseSlug, product);
     }
+  };
+
+  const handleCardClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (
+      event.defaultPrevented ||
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    ) {
+      return;
+    }
+    startNavigation();
+    handleNavigate();
   };
 
   const favoritePayload: ProductListItemInput | null = favoriteId
@@ -100,7 +117,7 @@ export function ProductCard({ product }: { product: ProductSummary }) {
       <Link
         href={`/p/${activeSlug ?? baseSlug}`}
         className="group/image relative aspect-4/5 overflow-hidden rounded-[10px] bg-white"
-        onClick={handleNavigate}
+        onClick={handleCardClick}
       >
         {imageUrl ? (
           <>

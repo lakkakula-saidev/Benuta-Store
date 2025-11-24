@@ -1,6 +1,6 @@
 # Benuta Store
 
-A modern, production-ready e-commerce platform for Benuta carpets and home accessories, built with Next.js 16, featuring German localization, comprehensive error handling, and seamless API integration.
+A modern, production-ready e-commerce platform for carpets and home accessories, built with Next.js 16, featuring comprehensive error handling, and seamless API integration.
 
 ## ✨ Key Features
 

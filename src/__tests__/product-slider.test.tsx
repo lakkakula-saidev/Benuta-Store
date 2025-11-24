@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ShopListsProvider } from "../context/shop-lists";
 import { describe, it, expect, vi } from "vitest";
 import { ProductSlider } from "../components/product-slider";
+import { RouteLoadingProvider } from "../context/route-loading";
 
 vi.mock("../lib/magento", () => ({
   fetchMagentoProducts: vi.fn(() =>
@@ -35,7 +36,9 @@ function renderWithClient(ui: React.ReactElement) {
   const client = new QueryClient();
   return render(
     <QueryClientProvider client={client}>
-      <ShopListsProvider>{ui}</ShopListsProvider>
+      <RouteLoadingProvider>
+        <ShopListsProvider>{ui}</ShopListsProvider>
+      </RouteLoadingProvider>
     </QueryClientProvider>
   );
 }
