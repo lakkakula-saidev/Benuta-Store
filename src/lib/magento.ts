@@ -8,6 +8,12 @@ import type {
   ProductDetail
 } from "../types/magento";
 import {
+  fetchMockMagentoCategories,
+  fetchMockMagentoFacets,
+  fetchMockMagentoProductDetail,
+  fetchMockMagentoProducts
+} from "../data/mock-magento";
+import {
   MAGENTO_ENDPOINT,
   MAGENTO_STORE_HEADER,
   COLOR_ATTRIBUTE,
@@ -24,6 +30,9 @@ import {
   mapProductToSummary,
   mapVariantsWithSizes
 } from "./magento/helpers";
+
+const USE_MOCK_MAGENTO =
+  process.env.NEXT_PUBLIC_USE_MOCK_MAGENTO === "true";
 
 export type { ProductDetail } from "../types/magento";
 
@@ -133,134 +142,152 @@ export async function fetchMagentoProducts(
     }
   `;
 
-  const sort = {
-    price: params.sort === "price_asc" ? "ASC" : "DESC"
-  };
-
-  const filter: Record<string, unknown> = {};
-
-  if (params.color) {
-    filter[COLOR_ATTRIBUTE] = { in: [params.color] };
+  if (USE_MOCK_MAGENTO) {
+    return withMockMagentoFallback("fetchMagentoProducts", () =>
+      fetchMockMagentoProducts(params)
+    );
   }
 
-  const priceFrom =
-    typeof params.priceRange?.from === "number" &&
-    Number.isFinite(params.priceRange.from)
-      ? params.priceRange.from
-      : undefined;
-  const priceTo =
-    typeof params.priceRange?.to === "number" &&
-    Number.isFinite(params.priceRange.to)
-      ? params.priceRange.to
-      : undefined;
-
-  if (priceFrom !== undefined || priceTo !== undefined) {
-    filter.price = {
-      from: priceFrom?.toString(),
-      to: priceTo?.toString()
+  try {
+    const sort = {
+      price: params.sort === "price_asc" ? "ASC" : "DESC"
     };
-  }
 
-  if (params.searchKeyword) {
-    filter.name = { match: params.searchKeyword };
-  }
+    const filter: Record<string, unknown> = {};
 
-  if (params.rooms && params.rooms.length) {
-    filter[ROOM_ATTRIBUTE] = { in: params.rooms };
-  }
-
-  if (params.materials && params.materials.length) {
-    filter[MATERIAL_ATTRIBUTE] = { in: params.materials };
-  }
-
-  if (params.sizes && params.sizes.length) {
-    filter[SIZE_ATTRIBUTE] = { in: params.sizes };
-  }
-
-  if (params.categoryUids && params.categoryUids.length) {
-    filter.category_uid = { in: params.categoryUids };
-  }
-
-  const response = await graphqlFetch<ProductsQueryResponse>({
-    endpoint: MAGENTO_ENDPOINT,
-    query,
-    variables: {
-      pageSize: params.pageSize,
-      currentPage: params.page,
-      sort,
-      filter
-    },
-    headers: {
-      Store: MAGENTO_STORE_HEADER
+    if (params.color) {
+      filter[COLOR_ATTRIBUTE] = { in: [params.color] };
     }
-  });
 
-  const items: ProductSummary[] = response.products.items
-    .map((item) => mapProductToSummary(item))
-    .filter(Boolean) as ProductSummary[];
+    const priceFrom =
+      typeof params.priceRange?.from === "number" &&
+      Number.isFinite(params.priceRange.from)
+        ? params.priceRange.from
+        : undefined;
+    const priceTo =
+      typeof params.priceRange?.to === "number" &&
+      Number.isFinite(params.priceRange.to)
+        ? params.priceRange.to
+        : undefined;
 
-  const groupedItems = groupProductsByName(items);
+    if (priceFrom !== undefined || priceTo !== undefined) {
+      filter.price = {
+        from: priceFrom?.toString(),
+        to: priceTo?.toString()
+      };
+    }
 
-  // Sort grouped items by price
-  groupedItems.sort((a, b) => {
-    const aPrice = a.price?.value || 0;
-    const bPrice = b.price?.value || 0;
-    return params.sort === "price_asc" ? aPrice - bPrice : bPrice - aPrice;
-  });
+    if (params.searchKeyword) {
+      filter.name = { match: params.searchKeyword };
+    }
 
-  const saleItems = groupedItems.filter((product) =>
-    product.badges?.some((b) => b.toLowerCase() === "sale")
-  );
+    if (params.rooms && params.rooms.length) {
+      filter[ROOM_ATTRIBUTE] = { in: params.rooms };
+    }
 
-  const colorAgg =
-    findAggregation(response.products.aggregations, [
-      COLOR_ATTRIBUTE,
-      "color",
-      "farbe"
-    ])?.options ?? [];
+    if (params.materials && params.materials.length) {
+      filter[MATERIAL_ATTRIBUTE] = { in: params.materials };
+    }
 
-  const colorOptions = colorAgg ? mapAggregationOptions(colorAgg) : [];
+    if (params.sizes && params.sizes.length) {
+      filter[SIZE_ATTRIBUTE] = { in: params.sizes };
+    }
 
-  const materialAgg =
-    findAggregation(response.products.aggregations, [
-      MATERIAL_ATTRIBUTE,
-      "material",
-      "material_filter",
-      "materialgruppe"
-    ])?.options ?? [];
+    if (params.categoryUids && params.categoryUids.length) {
+      filter.category_uid = { in: params.categoryUids };
+    }
 
-  const materialOptions = materialAgg ? mapAggregationOptions(materialAgg) : [];
+    const response = await graphqlFetch<ProductsQueryResponse>({
+      endpoint: MAGENTO_ENDPOINT,
+      query,
+      variables: {
+        pageSize: params.pageSize,
+        currentPage: params.page,
+        sort,
+        filter
+      },
+      headers: {
+        Store: MAGENTO_STORE_HEADER
+      }
+    });
 
-  const sizeAgg =
-    findAggregation(response.products.aggregations, [
-      SIZE_ATTRIBUTE,
-      "size",
-      "size_filter",
-      "groesse",
-      "shape"
-    ])?.options ?? [];
+    console.log("[fetchMagentoProducts] response", response);
 
-  const sizeOptions = sizeAgg ? mapAggregationOptions(sizeAgg) : [];
+    const items: ProductSummary[] = response.products.items
+      .map((item) => mapProductToSummary(item))
+      .filter(Boolean) as ProductSummary[];
 
-  const roomAgg =
-    findAggregation(response.products.aggregations, [
-      ROOM_ATTRIBUTE,
-      "room",
-      "room_filter",
-      "living_area"
-    ])?.options ?? [];
+    const groupedItems = groupProductsByName(items);
 
-  const roomOptions = roomAgg ? mapAggregationOptions(roomAgg) : [];
+    // Sort grouped items by price
+    groupedItems.sort((a, b) => {
+      const aPrice = a.price?.value || 0;
+      const bPrice = b.price?.value || 0;
+      return params.sort === "price_asc" ? aPrice - bPrice : bPrice - aPrice;
+    });
 
-  return {
-    items: groupedItems,
-    saleItems,
-    totalCount: response.products.total_count ?? 0,
-    colorOptions,
-    roomOptions,
-    materialOptions,
-    sizeOptions
-  };
+    const saleItems = groupedItems.filter((product) =>
+      product.badges?.some((b) => b.toLowerCase() === "sale")
+    );
+
+    const colorAgg =
+      findAggregation(response.products.aggregations, [
+        COLOR_ATTRIBUTE,
+        "color",
+        "farbe"
+      ])?.options ?? [];
+
+    const colorOptions = colorAgg ? mapAggregationOptions(colorAgg) : [];
+
+    const materialAgg =
+      findAggregation(response.products.aggregations, [
+        MATERIAL_ATTRIBUTE,
+        "material",
+        "material_filter",
+        "materialgruppe"
+      ])?.options ?? [];
+
+    const materialOptions = materialAgg
+      ? mapAggregationOptions(materialAgg)
+      : [];
+
+    const sizeAgg =
+      findAggregation(response.products.aggregations, [
+        SIZE_ATTRIBUTE,
+        "size",
+        "size_filter",
+        "groesse",
+        "shape"
+      ])?.options ?? [];
+
+    const sizeOptions = sizeAgg ? mapAggregationOptions(sizeAgg) : [];
+
+    const roomAgg =
+      findAggregation(response.products.aggregations, [
+        ROOM_ATTRIBUTE,
+        "room",
+        "room_filter",
+        "living_area"
+      ])?.options ?? [];
+
+    const roomOptions = roomAgg ? mapAggregationOptions(roomAgg) : [];
+
+    return {
+      items: groupedItems,
+      saleItems,
+      totalCount: response.products.total_count ?? 0,
+      colorOptions,
+      roomOptions,
+      materialOptions,
+      sizeOptions
+    };
+  } catch (error) {
+    return withMockMagentoFallback(
+      "fetchMagentoProducts",
+      () => fetchMockMagentoProducts(params),
+      error
+    );
+  }
 }
 
 export async function fetchMagentoFacets(categoryUids?: string[]): Promise<{
@@ -295,64 +322,78 @@ export async function fetchMagentoFacets(categoryUids?: string[]): Promise<{
     }
   `;
 
-  const response = await graphqlFetch<ProductsQueryResponse>({
-    endpoint: MAGENTO_ENDPOINT,
-    query,
-    variables: {
-      pageSize: 1,
-      currentPage: 1,
-      search: " ",
-      filter: categoryUids?.length
-        ? {
-            category_uid: {
-              in: categoryUids
+  if (USE_MOCK_MAGENTO) {
+    return withMockMagentoFallback("fetchMagentoFacets", () =>
+      fetchMockMagentoFacets(categoryUids)
+    );
+  }
+
+  try {
+    const response = await graphqlFetch<ProductsQueryResponse>({
+      endpoint: MAGENTO_ENDPOINT,
+      query,
+      variables: {
+        pageSize: 1,
+        currentPage: 1,
+        search: " ",
+        filter: categoryUids?.length
+          ? {
+              category_uid: {
+                in: categoryUids
+              }
             }
-          }
-        : undefined
-    },
-    headers: {
-      Store: MAGENTO_STORE_HEADER
-    }
-  });
+          : undefined
+      },
+      headers: {
+        Store: MAGENTO_STORE_HEADER
+      }
+    });
 
-  const colorAgg =
-    findAggregation(response.products.aggregations, [
-      COLOR_ATTRIBUTE,
-      "color",
-      "farbe"
-    ])?.options ?? [];
-  const roomAgg =
-    findAggregation(response.products.aggregations, [
-      ROOM_ATTRIBUTE,
-      "room",
-      "room_filter",
-      "living_area"
-    ])?.options ?? [];
-  const materialAgg =
-    findAggregation(response.products.aggregations, [
-      MATERIAL_ATTRIBUTE,
-      "material",
-      "material_filter",
-      "materialgruppe"
-    ])?.options ?? [];
-  const sizeAgg =
-    findAggregation(response.products.aggregations, [
-      SIZE_ATTRIBUTE,
-      "size",
-      "size_filter",
-      "groesse",
-      "shape"
-    ])?.options ?? [];
+    const colorAgg =
+      findAggregation(response.products.aggregations, [
+        COLOR_ATTRIBUTE,
+        "color",
+        "farbe"
+      ])?.options ?? [];
+    const roomAgg =
+      findAggregation(response.products.aggregations, [
+        ROOM_ATTRIBUTE,
+        "room",
+        "room_filter",
+        "living_area"
+      ])?.options ?? [];
+    const materialAgg =
+      findAggregation(response.products.aggregations, [
+        MATERIAL_ATTRIBUTE,
+        "material",
+        "material_filter",
+        "materialgruppe"
+      ])?.options ?? [];
+    const sizeAgg =
+      findAggregation(response.products.aggregations, [
+        SIZE_ATTRIBUTE,
+        "size",
+        "size_filter",
+        "groesse",
+        "shape"
+      ])?.options ?? [];
 
-  const mapOptions = (opts: typeof colorAgg) =>
-    mapAggregationOptions(opts ?? []);
+    const mapOptions = (opts: typeof colorAgg) =>
+      mapAggregationOptions(opts ?? []);
 
-  return {
-    colorOptions: mapOptions(colorAgg),
-    roomOptions: mapOptions(roomAgg),
-    materialOptions: mapOptions(materialAgg),
-    sizeOptions: mapOptions(sizeAgg)
-  };
+    return {
+      colorOptions: mapOptions(colorAgg),
+      roomOptions: mapOptions(roomAgg),
+      materialOptions: mapOptions(materialAgg),
+      sizeOptions: mapOptions(sizeAgg)
+    };
+  } catch (error) {
+    return withMockMagentoFallback(
+      "fetchMagentoFacets",
+      () => fetchMockMagentoFacets(categoryUids),
+      error
+    );
+  }
 }
 
 export type MagentoCategory = {
@@ -383,79 +424,70 @@ export async function fetchMagentoCategories(): Promise<
     categoryList: Array<{ children?: MagentoCategory[] | null }> | null;
   };
 
-  const response = await graphqlFetch<CategoryResponse>({
-    endpoint: MAGENTO_ENDPOINT,
-    query,
-    headers: { Store: MAGENTO_STORE_HEADER }
-  });
+  if (USE_MOCK_MAGENTO) {
+    return withMockMagentoFallback("fetchMagentoCategories", () =>
+      fetchMockMagentoCategories()
+    );
+  }
 
-  const flatten = (categories?: MagentoCategory[] | null) => {
-    const result: Array<{ label: string; value: string }> = [];
-    (categories ?? []).forEach((category) => {
-      if (!category?.uid || !category.name) return;
-      result.push({ label: category.name, value: category.uid });
-      if (category.children?.length) {
-        category.children.forEach((child) => {
-          if (!child?.uid || !child.name) return;
-          result.push({
-            label: `${category.name} / ${child.name}`,
-            value: child.uid
-          });
-        });
-      }
+  try {
+    const response = await graphqlFetch<CategoryResponse>({
+      endpoint: MAGENTO_ENDPOINT,
+      query,
+      headers: { Store: MAGENTO_STORE_HEADER }
     });
-    return result;
-  };
 
-  const root = response.categoryList?.[0];
-  return flatten(root?.children) ?? [];
+    const flatten = (categories?: MagentoCategory[] | null) => {
+      const result: Array<{ label: string; value: string }> = [];
+      (categories ?? []).forEach((category) => {
+        if (!category?.uid || !category.name) return;
+        result.push({ label: category.name, value: category.uid });
+        if (category.children?.length) {
+          category.children.forEach((child) => {
+            if (!child?.uid || !child.name) return;
+            result.push({
+              label: `${category.name} / ${child.name}`,
+              value: child.uid
+            });
+          });
+        }
+      });
+      return result;
+    };
+
+    const root = response.categoryList?.[0];
+    return flatten(root?.children) ?? [];
+  } catch (error) {
+    return withMockMagentoFallback(
+      "fetchMagentoCategories",
+      () => fetchMockMagentoCategories(),
+      error
+    );
+  }
 }
 
 export async function fetchMagentoProductDetail(
   identifier: string
 ): Promise<ProductDetail | null> {
-  const resolvedKey = await resolveUrlKey(identifier);
-  const urlKeyToUse = resolvedKey ?? identifier;
+  if (USE_MOCK_MAGENTO) {
+    return withMockMagentoFallback("fetchMagentoProductDetail", () =>
+      fetchMockMagentoProductDetail(identifier)
+    );
+  }
 
-  const query = /* GraphQL */ `
-    query ProductDetail($urlKey: String) {
-      products(filter: { url_key: { eq: $urlKey } }) {
-        items {
-          __typename
-          name
-          sku
-          url_key
-          url_suffix
-          small_image {
-            url
-          }
-          media_gallery {
-            url
-          }
-          price_range {
-            minimum_price {
-              final_price {
-                value
-                currency
-              }
-              regular_price {
-                value
-                currency
-              }
-            }
-          }
-          short_description {
-            html
-          }
-          description {
-            html
-          }
-          stock_status
-          related_products {
+  try {
+    const resolvedKey = await resolveUrlKey(identifier);
+    const urlKeyToUse = resolvedKey ?? identifier;
+
+    const query = /* GraphQL */ `
+      query ProductDetail($urlKey: String) {
+        products(filter: { url_key: { eq: $urlKey } }) {
+          items {
             __typename
             name
             sku
             url_key
+            url_suffix
             small_image {
               url
             }
@@ -477,7 +509,77 @@ export async function fetchMagentoProductDetail(
             short_description {
               html
             }
+            description {
+              html
+            }
             stock_status
+            related_products {
+              __typename
+              name
+              sku
+              url_key
+              small_image {
+                url
+              }
+              media_gallery {
+                url
+              }
+              price_range {
+                minimum_price {
+                  final_price {
+                    value
+                    currency
+                  }
+                  regular_price {
+                    value
+                    currency
+                  }
+                }
+              }
+              short_description {
+                html
+              }
+              stock_status
+              ... on ConfigurableProduct {
+                configurable_options {
+                  attribute_code
+                  label
+                  values {
+                    value_index
+                    label
+                  }
+                }
+                variants {
+                  product {
+                    name
+                    sku
+                    url_key
+                    small_image {
+                      url
+                    }
+                    media_gallery {
+                      url
+                    }
+                    price_range {
+                      minimum_price {
+                        final_price {
+                          value
+                          currency
+                        }
+                        regular_price {
+                          value
+                          currency
+                        }
+                      }
+                    }
+                  }
+                  attributes {
+                    code
+                    value_index
+                  }
+                }
+              }
+            }
             ... on ConfigurableProduct {
               configurable_options {
                 attribute_code
@@ -518,141 +620,127 @@ export async function fetchMagentoProductDetail(
               }
             }
           }
-          ... on ConfigurableProduct {
-            configurable_options {
-              attribute_code
-              label
-              values {
-                value_index
-                label
-              }
-            }
-            variants {
-              product {
-                name
-                sku
-                url_key
-                small_image {
-                  url
-                }
-                media_gallery {
-                  url
-                }
-                price_range {
-                  minimum_price {
-                    final_price {
-                      value
-                      currency
-                    }
-                    regular_price {
-                      value
-                      currency
-                    }
-                  }
-                }
-              }
-              attributes {
-                code
-                value_index
-              }
-            }
-          }
+        }
+      }
+    `;
+
+    const response = await graphqlFetch<ProductsQueryResponse>({
+      endpoint: MAGENTO_ENDPOINT,
+      query,
+      variables: { urlKey: urlKeyToUse },
+      headers: { Store: MAGENTO_STORE_HEADER }
+    });
+
+    type ProductWithRelated = MagentoProduct & {
+      related_products?: MagentoProduct[] | null;
+    };
+
+    let product = response.products.items?.[0] as
+      | ProductWithRelated
+      | undefined;
+    const initialSummary = product ? mapProductToSummary(product) : null;
+
+    if (!isConfigurableWithVariants(product)) {
+      const baseKey = stripColorFromSlug(urlKeyToUse);
+      const searchTerms = [
+        urlKeyToUse,
+        baseKey,
+        buildSearchHint(urlKeyToUse),
+        buildSearchHint(baseKey ?? ""),
+        product?.sku,
+        initialSummary?.name,
+        buildSearchHint(initialSummary?.name ?? "")
+      ].filter(Boolean) as string[];
+
+      for (const term of searchTerms) {
+        if (!term) continue;
+        const retry = await graphqlFetch<ProductsQueryResponse>({
+          endpoint: MAGENTO_ENDPOINT,
+          query,
+          variables: { urlKey: term },
+          headers: { Store: MAGENTO_STORE_HEADER }
+        }).catch(() => null);
+        const candidate = retry?.products.items?.find(
+          isConfigurableWithVariants
+        );
+        if (candidate) {
+          product = candidate as ProductWithRelated;
+          break;
+        }
+        const configurable = await searchConfigurableProduct(term);
+        if (configurable) {
+          product = configurable as ProductWithRelated;
+          break;
         }
       }
     }
-  `;
 
-  const response = await graphqlFetch<ProductsQueryResponse>({
-    endpoint: MAGENTO_ENDPOINT,
-    query,
-    variables: { urlKey: urlKeyToUse },
-    headers: { Store: MAGENTO_STORE_HEADER }
-  });
+    if (
+      isConfigurableWithVariants(product) &&
+      (product?.variants?.length ?? 0) <= 1
+    ) {
+      const variantHints = [
+        product?.name ?? null,
+        initialSummary?.name ?? null,
+        buildSearchHint(product?.name ?? ""),
+        buildSearchHint(initialSummary?.name ?? "")
+      ].filter(Boolean) as string[];
 
-  type ProductWithRelated = MagentoProduct & {
-    related_products?: MagentoProduct[] | null;
-  };
-
-  let product = response.products.items?.[0] as ProductWithRelated | undefined;
-  const initialSummary = product ? mapProductToSummary(product) : null;
-
-  if (!isConfigurableWithVariants(product)) {
-    const baseKey = stripColorFromSlug(urlKeyToUse);
-    const searchTerms = [
-      urlKeyToUse,
-      baseKey,
-      buildSearchHint(urlKeyToUse),
-      buildSearchHint(baseKey ?? ""),
-      product?.sku,
-      initialSummary?.name,
-      buildSearchHint(initialSummary?.name ?? "")
-    ].filter(Boolean) as string[];
-
-    for (const term of searchTerms) {
-      if (!term) continue;
-      // direct url_key retry
-      const retry = await graphqlFetch<ProductsQueryResponse>({
-        endpoint: MAGENTO_ENDPOINT,
-        query,
-        variables: { urlKey: term },
-        headers: { Store: MAGENTO_STORE_HEADER }
-      }).catch(() => null);
-      const candidate = retry?.products.items?.find(isConfigurableWithVariants);
-      if (candidate) {
-        product = candidate as ProductWithRelated;
-        break;
-      }
-      const configurable = await searchConfigurableProduct(term);
-      if (configurable) {
-        product = configurable as ProductWithRelated;
-        break;
+      for (const hint of variantHints) {
+        if (!hint) continue;
+        const enriched = await searchConfigurableProduct(hint);
+        if (enriched?.variants?.length) {
+          product = enriched as ProductWithRelated;
+          break;
+        }
       }
     }
+
+    if (!product?.name) return null;
+
+    const baseSummary = mapProductToSummary(product);
+    if (!baseSummary) return null;
+
+    const gallery = cleanGallery(product.media_gallery);
+    const variantChoices =
+      product.__typename === "ConfigurableProduct"
+        ? mapVariantsWithSizes(product)
+        : baseSummary.variants ?? null;
+    const relatedProducts = (product.related_products ?? [])
+      .map((item) => mapProductToSummary(item))
+      .filter(Boolean) as ProductSummary[];
+
+    return {
+      ...baseSummary,
+      descriptionHtml:
+        product.description?.html ?? product.short_description?.html ?? null,
+      gallery,
+      relatedProducts,
+      variantChoices: variantChoices ?? undefined
+    };
+  } catch (error) {
+    return withMockMagentoFallback(
+      "fetchMagentoProductDetail",
+      () => fetchMockMagentoProductDetail(identifier),
+      error
+    );
   }
+}
 
-  if (
-    isConfigurableWithVariants(product) &&
-    (product?.variants?.length ?? 0) <= 1
-  ) {
-    const variantHints = [
-      product?.name ?? null,
-      initialSummary?.name ?? null,
-      buildSearchHint(product?.name ?? ""),
-      buildSearchHint(initialSummary?.name ?? "")
-    ].filter(Boolean) as string[];
-
-    for (const hint of variantHints) {
-      if (!hint) continue;
-      const enriched = await searchConfigurableProduct(hint);
-      if (enriched?.variants?.length) {
-        product = enriched as ProductWithRelated;
-        break;
-      }
-    }
+function withMockMagentoFallback<T>(
+  context: string,
+  fallback: () => T,
+  error?: unknown
+): T {
+  if (error) {
+    console.warn(
+      `[${context}] Magento request failed, using mock dataset.`,
+      error
+    );
+  } else {
+    console.warn(`[${context}] Using mock Magento dataset.`);
   }
-
-  if (!product?.name) return null;
-
-  const baseSummary = mapProductToSummary(product);
-  if (!baseSummary) return null;
-
-  const gallery = cleanGallery(product.media_gallery);
-  const variantChoices =
-    product.__typename === "ConfigurableProduct"
-      ? mapVariantsWithSizes(product)
-      : baseSummary.variants ?? null;
-  const relatedProducts = (product.related_products ?? [])
-    .map((item) => mapProductToSummary(item))
-    .filter(Boolean) as ProductSummary[];
-
-  return {
-    ...baseSummary,
-    descriptionHtml:
-      product.description?.html ?? product.short_description?.html ?? null,
-    gallery,
-    relatedProducts,
-    variantChoices: variantChoices ?? undefined
-  };
+  return fallback();
 }
 
 async function resolveUrlKey(identifier: string): Promise<string | null> {
@@ -707,6 +795,7 @@ function stripColorFromSlug(slug: string): string | null {
 async function searchConfigurableProduct(
   searchKey: string
 ): Promise<MagentoProduct | null> {
+  if (USE_MOCK_MAGENTO) return null;
   const searchQuery = /* GraphQL */ `
     query SearchConfigurable($search: String) {
       products(search: $search, pageSize: 30) {

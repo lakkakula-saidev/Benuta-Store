@@ -1,4 +1,4 @@
-# Benuta Store
+# Shopper Store
 
 A modern, production-ready e-commerce platform for carpets and home accessories, built with Next.js 16, featuring comprehensive error handling, and seamless API integration.
 
@@ -24,11 +24,12 @@ npm i
 Copy `.env.example` to `.env.local` and fill in the required values:
 
 ```env
-NEXT_PUBLIC_MAGENTO_ENDPOINT=https://b2b.benuta.com/graphql
-MAGENTO_STORE_CODE=benuta_eu
+NEXT_PUBLIC_MAGENTO_ENDPOINT=https://b2b.shopper.com/graphql
+MAGENTO_STORE_CODE=shopper_eu
 CONTENTFUL_SPACE_ID=your_contentful_space_id_here
 CONTENTFUL_ENV=master
 CONTENTFUL_CDA_TOKEN=your_contentful_access_token_here
+NEXT_PUBLIC_USE_MOCK_MAGENTO=false
 ```
 
 ## Development
@@ -60,6 +61,12 @@ Build and start production server:
 ```bash
 npm run build && npm run start
 ```
+
+## Magento Fallback Data
+
+- The Magento API fetchers now have a persisted mock dataset (`src/data/mock-magento.ts`) so the store keeps working even if the original backend disappears.
+- When the GraphQL endpoint fails at runtime the app automatically swaps to the mock data and logs the fallback in the console.
+- Set `NEXT_PUBLIC_USE_MOCK_MAGENTO=true` in your `.env.local` to force the mock mode (useful for developing offline snapshots or in demos).
 
 ## Features
 
@@ -93,7 +100,7 @@ npm run build && npm run start
 
 ## Vercel Deployment
 
-live preview: - https://benuta-store.vercel.app/
+live preview: - https://shopper-store.vercel.app/
 
 ## Setbacks: Unable to Achieve Price Filtering
 

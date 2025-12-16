@@ -1,0 +1,1264 @@
+{
+  "categoryOptions": [
+    { "label": "Teppiche", "value": "MTU2NA==" },
+    { "label": "Wohnaccessoires", "value": "MTI1Mg==" }
+  ],
+  "products": [
+    {
+      "summary": {
+        "name": "Shaggy Teppich Gobi",
+        "sku": "BN-GOBI-BASE",
+        "urlKey": "shaggy-teppich-gobi-beige-200x300",
+        "imageUrl": "/sample-image.jpg",
+        "hoverImageUrl": "/sample-image.jpg",
+        "price": { "value": 299.95, "currency": "EUR" },
+        "originalPrice": { "value": 399.95, "currency": "EUR" },
+        "badges": ["Sale", "Bestseller"],
+        "shortDescription": "Weicher Hochflorteppich mit seidigem Glanz und modernem Farbverlauf.",
+        "inStock": true,
+        "variants": [
+          {
+            "colorLabel": "Beige",
+            "colorValue": 1,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 299.95, "currency": "EUR" },
+            "originalPrice": { "value": 399.95, "currency": "EUR" },
+            "name": "Gobi Beige 200x300",
+            "sku": "BN-GOBI-BEIGE-200X300",
+            "urlKey": "shaggy-teppich-gobi-beige-200x300"
+          },
+          {
+            "colorLabel": "Taupe",
+            "colorValue": 2,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 279.95, "currency": "EUR" },
+            "originalPrice": { "value": 349.95, "currency": "EUR" },
+            "name": "Gobi Taupe 160x230",
+            "sku": "BN-GOBI-TAUPE-160X230",
+            "urlKey": "shaggy-teppich-gobi-taupe-160x230"
+          },
+          {
+            "colorLabel": "Grau",
+            "colorValue": 3,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 259.95, "currency": "EUR" },
+            "originalPrice": { "value": 299.95, "currency": "EUR" },
+            "name": "Gobi Grau 140x200",
+            "sku": "BN-GOBI-GRAU-140X200",
+            "urlKey": "shaggy-teppich-gobi-grau-140x200"
+          }
+        ]
+      },
+      "categoryUids": ["MTU2NA=="],
+      "facets": {
+        "colors": [
+          { "label": "Beige", "value": "beige" },
+          { "label": "Taupe", "value": "taupe" },
+          { "label": "Grau", "value": "grau" }
+        ],
+        "rooms": [
+          { "label": "Wohnzimmer", "value": "wohnzimmer" },
+          { "label": "Schlafzimmer", "value": "schlafzimmer" }
+        ],
+        "materials": [
+          { "label": "Polyester", "value": "polyester" }
+        ],
+        "sizes": [
+          { "label": "200 x 300 cm", "value": "200x300" },
+          { "label": "160 x 230 cm", "value": "160x230" },
+          { "label": "140 x 200 cm", "value": "140x200" }
+        ]
+      },
+      "keywords": ["hochflor", "shaggy", "gobi"]
+    },
+    {
+      "summary": {
+        "name": "Design Teppich Livi",
+        "sku": "BN-LIVI-BASE",
+        "urlKey": "design-teppich-livi-mint-160x230",
+        "imageUrl": "/sample-image.jpg",
+        "hoverImageUrl": "/sample-image.jpg",
+        "price": { "value": 189.95, "currency": "EUR" },
+        "originalPrice": { "value": 219.95, "currency": "EUR" },
+        "badges": ["Neu"],
+        "shortDescription": "Handgewebter Designteppich mit skandinavischer Linienführung.",
+        "inStock": true,
+        "variants": [
+          {
+            "colorLabel": "Mint",
+            "colorValue": 4,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 189.95, "currency": "EUR" },
+            "originalPrice": { "value": 219.95, "currency": "EUR" },
+            "name": "Livi Mint 160x230",
+            "sku": "BN-LIVI-MINT-160X230",
+            "urlKey": "design-teppich-livi-mint-160x230"
+          },
+          {
+            "colorLabel": "Grau",
+            "colorValue": 5,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 209.95, "currency": "EUR" },
+            "name": "Livi Grau 200x290",
+            "sku": "BN-LIVI-GRAU-200X290",
+            "urlKey": "design-teppich-livi-grau-200x290"
+          },
+          {
+            "colorLabel": "Creme",
+            "colorValue": 6,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 179.95, "currency": "EUR" },
+            "name": "Livi Creme 140x200",
+            "sku": "BN-LIVI-CREME-140X200",
+            "urlKey": "design-teppich-livi-creme-140x200"
+          }
+        ]
+      },
+      "categoryUids": ["MTU2NA=="],
+      "facets": {
+        "colors": [
+          { "label": "Mint", "value": "mint" },
+          { "label": "Grau", "value": "grau" },
+          { "label": "Creme", "value": "creme" }
+        ],
+        "rooms": [
+          { "label": "Esszimmer", "value": "esszimmer" },
+          { "label": "Wohnzimmer", "value": "wohnzimmer" }
+        ],
+        "materials": [
+          { "label": "Viskose", "value": "viskose" }
+        ],
+        "sizes": [
+          { "label": "160 x 230 cm", "value": "160x230" },
+          { "label": "200 x 290 cm", "value": "200x290" },
+          { "label": "140 x 200 cm", "value": "140x200" }
+        ]
+      },
+      "keywords": ["design", "skandi", "livi"]
+    },
+    {
+      "summary": {
+        "name": "Outdoor Teppich Rivoli",
+        "sku": "BN-RIVOLI-BASE",
+        "urlKey": "outdoor-teppich-rivoli-grau-200x290",
+        "imageUrl": "/sample-image.jpg",
+        "hoverImageUrl": "/sample-image.jpg",
+        "price": { "value": 159.95, "currency": "EUR" },
+        "originalPrice": { "value": 199.95, "currency": "EUR" },
+        "badges": ["Sale"],
+        "shortDescription": "Robuster Outdoor-Teppich mit strukturierter Oberfläche für Balkon und Garten.",
+        "inStock": true,
+        "variants": [
+          {
+            "colorLabel": "Grau",
+            "colorValue": 7,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 159.95, "currency": "EUR" },
+            "originalPrice": { "value": 199.95, "currency": "EUR" },
+            "name": "Rivoli Grau 200x290",
+            "sku": "BN-RIVOLI-GRAU-200X290",
+            "urlKey": "outdoor-teppich-rivoli-grau-200x290"
+          },
+          {
+            "colorLabel": "Anthrazit",
+            "colorValue": 8,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 149.95, "currency": "EUR" },
+            "name": "Rivoli Anthrazit 160x230",
+            "sku": "BN-RIVOLI-ANTH-160X230",
+            "urlKey": "outdoor-teppich-rivoli-anthrazit-160x230"
+          }
+        ]
+      },
+      "categoryUids": ["MTU2NA==", "MTI1Mg=="],
+      "facets": {
+        "colors": [
+          { "label": "Grau", "value": "grau" },
+          { "label": "Anthrazit", "value": "anthrazit" }
+        ],
+        "rooms": [
+          { "label": "Outdoor", "value": "outdoor" },
+          { "label": "Wohnzimmer", "value": "wohnzimmer" }
+        ],
+        "materials": [
+          { "label": "Polypropylen", "value": "polypropylen" }
+        ],
+        "sizes": [
+          { "label": "200 x 290 cm", "value": "200x290" },
+          { "label": "160 x 230 cm", "value": "160x230" }
+        ]
+      },
+      "keywords": ["outdoor", "rivoli", "balkon"]
+    },
+    {
+      "summary": {
+        "name": "Samt Kissenhülle Faro",
+        "sku": "BN-FARO-BASE",
+        "urlKey": "samt-kissenhuelle-faro-rose-50x50",
+        "imageUrl": "/sample-image.jpg",
+        "hoverImageUrl": "/sample-image.jpg",
+        "price": { "value": 49.95, "currency": "EUR" },
+        "badges": ["Limited"],
+        "shortDescription": "Luxuriöse Samt-Kissenhülle mit dekorativer Paspel in Kontrastfarbe.",
+        "inStock": true,
+        "variants": [
+          {
+            "colorLabel": "Rose",
+            "colorValue": 9,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 49.95, "currency": "EUR" },
+            "name": "Faro Rose 50x50",
+            "sku": "BN-FARO-ROSE-50X50",
+            "urlKey": "samt-kissenhuelle-faro-rose-50x50"
+          },
+          {
+            "colorLabel": "Beige",
+            "colorValue": 10,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 49.95, "currency": "EUR" },
+            "name": "Faro Beige 40x60",
+            "sku": "BN-FARO-BEIGE-40X60",
+            "urlKey": "samt-kissenhuelle-faro-beige-40x60"
+          }
+        ]
+      },
+      "categoryUids": ["MTI1Mg=="],
+      "facets": {
+        "colors": [
+          { "label": "Rose", "value": "rosa" },
+          { "label": "Beige", "value": "beige" }
+        ],
+        "rooms": [
+          { "label": "Wohnzimmer", "value": "wohnzimmer" },
+          { "label": "Schlafzimmer", "value": "schlafzimmer" }
+        ],
+        "materials": [
+          { "label": "Samt", "value": "samt" }
+        ],
+        "sizes": [
+          { "label": "50 x 50 cm", "value": "50x50" },
+          { "label": "40 x 60 cm", "value": "40x60" }
+        ]
+      },
+      "keywords": ["kissen", "faro", "samt"]
+    },
+    {
+      "summary": {
+        "name": "Geflochtener Korb Malu",
+        "sku": "BN-MALU-BASE",
+        "urlKey": "geflochtener-korb-malu-natur",
+        "imageUrl": "/sample-image.jpg",
+        "hoverImageUrl": "/sample-image.jpg",
+        "price": { "value": 39.95, "currency": "EUR" },
+        "badges": ["Handmade"],
+        "shortDescription": "Aufbewahrungskorb aus handgeflochtener Jute mit stabilen Henkeln.",
+        "inStock": true
+      },
+      "categoryUids": ["MTI1Mg=="],
+      "facets": {
+        "colors": [
+          { "label": "Natur", "value": "natur" }
+        ],
+        "rooms": [
+          { "label": "Wohnzimmer", "value": "wohnzimmer" },
+          { "label": "Bad", "value": "bad" }
+        ],
+        "materials": [
+          { "label": "Jute", "value": "jute" }
+        ],
+        "sizes": [
+          { "label": "Ø 40 cm", "value": "40cm" }
+        ]
+      },
+      "keywords": ["korb", "aufbewahrung", "malu"]
+    },
+    {
+      "summary": {
+        "name": "Kinderteppich Wolke",
+        "sku": "BN-WOLKE-BASE",
+        "urlKey": "kinderteppich-wolke-sky-120x170",
+        "imageUrl": "/sample-image.jpg",
+        "hoverImageUrl": "/sample-image.jpg",
+        "price": { "value": 129.95, "currency": "EUR" },
+        "badges": ["Kids"],
+        "shortDescription": "Superweicher Baumwollteppich mit Wolkenmotiven für das Kinderzimmer.",
+        "inStock": true,
+        "variants": [
+          {
+            "colorLabel": "Blau",
+            "colorValue": 11,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 129.95, "currency": "EUR" },
+            "name": "Wolke Blau 120x170",
+            "sku": "BN-WOLKE-BLAU-120X170",
+            "urlKey": "kinderteppich-wolke-sky-120x170"
+          },
+          {
+            "colorLabel": "Grau",
+            "colorValue": 12,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 149.95, "currency": "EUR" },
+            "name": "Wolke Grau 140x200",
+            "sku": "BN-WOLKE-GRAU-140X200",
+            "urlKey": "kinderteppich-wolke-grau-140x200"
+          }
+        ]
+      },
+      "categoryUids": ["MTU2NA=="],
+      "facets": {
+        "colors": [
+          { "label": "Blau", "value": "blau" },
+          { "label": "Grau", "value": "grau" }
+        ],
+        "rooms": [
+          { "label": "Kinderzimmer", "value": "kinderzimmer" }
+        ],
+        "materials": [
+          { "label": "Baumwolle", "value": "baumwolle" }
+        ],
+        "sizes": [
+          { "label": "120 x 170 cm", "value": "120x170" },
+          { "label": "140 x 200 cm", "value": "140x200" }
+        ]
+      },
+      "keywords": ["kinderteppich", "wolke", "cotton"]
+    },
+    {
+      "summary": {
+        "name": "Wollteppich Skandi Noor",
+        "sku": "BN-NOOR-BASE",
+        "urlKey": "wollteppich-skandi-noor",
+        "imageUrl": "/sample-image.jpg",
+        "hoverImageUrl": "/sample-image.jpg",
+        "price": { "value": 349.0, "currency": "EUR" },
+        "originalPrice": { "value": 399.0, "currency": "EUR" },
+        "badges": ["Handwoven"],
+        "shortDescription": "Dichter Wollteppich mit skandinavischem Streifenmuster.",
+        "inStock": true,
+        "variants": [
+          {
+            "colorLabel": "Natur",
+            "colorValue": 13,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 349.0, "currency": "EUR" },
+            "name": "Noor Natur 200x300",
+            "sku": "BN-NOOR-NATUR-200X300",
+            "urlKey": "wollteppich-skandi-noor-natur-200x300"
+          },
+          {
+            "colorLabel": "Graphit",
+            "colorValue": 14,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 329.0, "currency": "EUR" },
+            "name": "Noor Graphit 170x240",
+            "sku": "BN-NOOR-GRAPHIT-170X240",
+            "urlKey": "wollteppich-skandi-noor-graphit-170x240"
+          }
+        ]
+      },
+      "categoryUids": ["MTU2NA=="],
+      "facets": {
+        "colors": [
+          { "label": "Natur", "value": "natur" },
+          { "label": "Graphit", "value": "graphit" }
+        ],
+        "rooms": [
+          { "label": "Wohnzimmer", "value": "wohnzimmer" },
+          { "label": "Arbeitszimmer", "value": "arbeitszimmer" }
+        ],
+        "materials": [
+          { "label": "Wolle", "value": "wolle" }
+        ],
+        "sizes": [
+          { "label": "200 x 300 cm", "value": "200x300" },
+          { "label": "170 x 240 cm", "value": "170x240" }
+        ]
+      },
+      "keywords": ["wolle", "skandi", "noor"]
+    },
+    {
+      "summary": {
+        "name": "Vintage Teppich Porto",
+        "sku": "BN-PORTO-BASE",
+        "urlKey": "vintage-teppich-porto",
+        "imageUrl": "/sample-image.jpg",
+        "hoverImageUrl": "/sample-image.jpg",
+        "price": { "value": 229.95, "currency": "EUR" },
+        "badges": ["Vintage"],
+        "shortDescription": "Vintage-Look mit verwaschenem Ornamentdesign.",
+        "inStock": true,
+        "variants": [
+          {
+            "colorLabel": "Petrol",
+            "colorValue": 15,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 229.95, "currency": "EUR" },
+            "name": "Porto Petrol 200x290",
+            "sku": "BN-PORTO-PETROL-200X290",
+            "urlKey": "vintage-teppich-porto-petrol-200x290"
+          },
+          {
+            "colorLabel": "Sand",
+            "colorValue": 16,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 219.95, "currency": "EUR" },
+            "name": "Porto Sand 160x230",
+            "sku": "BN-PORTO-SAND-160X230",
+            "urlKey": "vintage-teppich-porto-sand-160x230"
+          }
+        ]
+      },
+      "categoryUids": ["MTU2NA=="],
+      "facets": {
+        "colors": [
+          { "label": "Petrol", "value": "petrol" },
+          { "label": "Sand", "value": "sand" }
+        ],
+        "rooms": [
+          { "label": "Wohnzimmer", "value": "wohnzimmer" },
+          { "label": "Flur", "value": "flur" }
+        ],
+        "materials": [
+          { "label": "Polyamid", "value": "polyamid" }
+        ],
+        "sizes": [
+          { "label": "200 x 290 cm", "value": "200x290" },
+          { "label": "160 x 230 cm", "value": "160x230" }
+        ]
+      },
+      "keywords": ["vintage", "porto", "ornament"]
+    },
+    {
+      "summary": {
+        "name": "Kurzflor Teppich Oslo",
+        "sku": "BN-OSLO-BASE",
+        "urlKey": "kurzflor-teppich-oslo",
+        "imageUrl": "/sample-image.jpg",
+        "hoverImageUrl": "/sample-image.jpg",
+        "price": { "value": 139.0, "currency": "EUR" },
+        "badges": ["Easy Care"],
+        "shortDescription": "Pflegeleichter Kurzflorteppich mit grafischem Muster.",
+        "inStock": true,
+        "variants": [
+          {
+            "colorLabel": "Schwarz/Weiß",
+            "colorValue": 17,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 139.0, "currency": "EUR" },
+            "name": "Oslo Schwarz 160x230",
+            "sku": "BN-OSLO-BW-160X230",
+            "urlKey": "kurzflor-teppich-oslo-160x230"
+          },
+          {
+            "colorLabel": "Terracotta",
+            "colorValue": 18,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 129.0, "currency": "EUR" },
+            "name": "Oslo Terracotta 140x200",
+            "sku": "BN-OSLO-TERRA-140X200",
+            "urlKey": "kurzflor-teppich-oslo-terracotta-140x200"
+          }
+        ]
+      },
+      "categoryUids": ["MTU2NA=="],
+      "facets": {
+        "colors": [
+          { "label": "Schwarz/Weiß", "value": "schwarzweiss" },
+          { "label": "Terracotta", "value": "terracotta" }
+        ],
+        "rooms": [
+          { "label": "Esszimmer", "value": "esszimmer" },
+          { "label": "Wohnzimmer", "value": "wohnzimmer" }
+        ],
+        "materials": [
+          { "label": "Polypropylen", "value": "polypropylen" }
+        ],
+        "sizes": [
+          { "label": "160 x 230 cm", "value": "160x230" },
+          { "label": "140 x 200 cm", "value": "140x200" }
+        ]
+      },
+      "keywords": ["kurzflor", "oslo", "grafik"]
+    },
+    {
+      "summary": {
+        "name": "Runder Teppich Siena",
+        "sku": "BN-SIENA-BASE",
+        "urlKey": "runder-teppich-siena",
+        "imageUrl": "/sample-image.jpg",
+        "hoverImageUrl": "/sample-image.jpg",
+        "price": { "value": 119.95, "currency": "EUR" },
+        "badges": ["Round"],
+        "shortDescription": "Runder Teppich mit sanftem Verlauf in Pastellfarben.",
+        "inStock": true,
+        "variants": [
+          {
+            "colorLabel": "Rosé",
+            "colorValue": 19,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 119.95, "currency": "EUR" },
+            "name": "Siena Rosé Ø200",
+            "sku": "BN-SIENA-ROSE-200",
+            "urlKey": "runder-teppich-siena-rose-200"
+          },
+          {
+            "colorLabel": "Salbei",
+            "colorValue": 20,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 129.95, "currency": "EUR" },
+            "name": "Siena Salbei Ø220",
+            "sku": "BN-SIENA-SALBEI-220",
+            "urlKey": "runder-teppich-siena-salbei-220"
+          }
+        ]
+      },
+      "categoryUids": ["MTU2NA=="],
+      "facets": {
+        "colors": [
+          { "label": "Rosé", "value": "rose" },
+          { "label": "Salbei", "value": "salbei" }
+        ],
+        "rooms": [
+          { "label": "Schlafzimmer", "value": "schlafzimmer" },
+          { "label": "Wohnzimmer", "value": "wohnzimmer" }
+        ],
+        "materials": [
+          { "label": "Polyester", "value": "polyester" }
+        ],
+        "sizes": [
+          { "label": "Ø 200 cm", "value": "200cm" },
+          { "label": "Ø 220 cm", "value": "220cm" }
+        ]
+      },
+      "keywords": ["rund", "siena", "pastell"]
+    },
+    {
+      "summary": {
+        "name": "Läufer Bari",
+        "sku": "BN-BARI-BASE",
+        "urlKey": "laeufer-bari",
+        "imageUrl": "/sample-image.jpg",
+        "hoverImageUrl": "/sample-image.jpg",
+        "price": { "value": 89.95, "currency": "EUR" },
+        "badges": ["Hallway"],
+        "shortDescription": "Schmaler Läufer mit Anti-Rutsch-Rücken für Flur und Küche.",
+        "inStock": true,
+        "variants": [
+          {
+            "colorLabel": "Marine",
+            "colorValue": 21,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 89.95, "currency": "EUR" },
+            "name": "Bari Marine 80x300",
+            "sku": "BN-BARI-MARINE-80X300",
+            "urlKey": "laeufer-bari-marine-80x300"
+          },
+          {
+            "colorLabel": "Ocker",
+            "colorValue": 22,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 79.95, "currency": "EUR" },
+            "name": "Bari Ocker 80x250",
+            "sku": "BN-BARI-OCKER-80X250",
+            "urlKey": "laeufer-bari-ocker-80x250"
+          }
+        ]
+      },
+      "categoryUids": ["MTU2NA=="],
+      "facets": {
+        "colors": [
+          { "label": "Marine", "value": "marine" },
+          { "label": "Ocker", "value": "ocker" }
+        ],
+        "rooms": [
+          { "label": "Flur", "value": "flur" },
+          { "label": "Küche", "value": "kuche" }
+        ],
+        "materials": [
+          { "label": "Recycled", "value": "recycled" }
+        ],
+        "sizes": [
+          { "label": "80 x 300 cm", "value": "80x300" },
+          { "label": "80 x 250 cm", "value": "80x250" }
+        ]
+      },
+      "keywords": ["laeufer", "bari", "flur"]
+    },
+    {
+      "summary": {
+        "name": "Hochflor Teppich Cosy",
+        "sku": "BN-COSY-BASE",
+        "urlKey": "hochflor-teppich-cosy",
+        "imageUrl": "/sample-image.jpg",
+        "hoverImageUrl": "/sample-image.jpg",
+        "price": { "value": 249.0, "currency": "EUR" },
+        "originalPrice": { "value": 279.0, "currency": "EUR" },
+        "badges": ["Soft"],
+        "shortDescription": "Extraweicher Hochflorteppich für gemütliche Zonen.",
+        "inStock": true,
+        "variants": [
+          {
+            "colorLabel": "Ivory",
+            "colorValue": 23,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 249.0, "currency": "EUR" },
+            "name": "Cosy Ivory 200x300",
+            "sku": "BN-COSY-IVORY-200X300",
+            "urlKey": "hochflor-teppich-cosy-ivory-200x300"
+          },
+          {
+            "colorLabel": "Blush",
+            "colorValue": 24,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 229.0, "currency": "EUR" },
+            "name": "Cosy Blush 170x240",
+            "sku": "BN-COSY-BLUSH-170X240",
+            "urlKey": "hochflor-teppich-cosy-blush-170x240"
+          }
+        ]
+      },
+      "categoryUids": ["MTU2NA=="],
+      "facets": {
+        "colors": [
+          { "label": "Ivory", "value": "ivory" },
+          { "label": "Blush", "value": "blush" }
+        ],
+        "rooms": [
+          { "label": "Wohnzimmer", "value": "wohnzimmer" },
+          { "label": "Schlafzimmer", "value": "schlafzimmer" }
+        ],
+        "materials": [
+          { "label": "Mikrofaser", "value": "mikrofaser" }
+        ],
+        "sizes": [
+          { "label": "200 x 300 cm", "value": "200x300" },
+          { "label": "170 x 240 cm", "value": "170x240" }
+        ]
+      },
+      "keywords": ["hochflor", "cosy", "soft"]
+    },
+    {
+      "summary": {
+        "name": "Naturteppich Jara",
+        "sku": "BN-JARA-BASE",
+        "urlKey": "naturteppich-jara",
+        "imageUrl": "/sample-image.jpg",
+        "hoverImageUrl": "/sample-image.jpg",
+        "price": { "value": 159.0, "currency": "EUR" },
+        "badges": ["Natural"],
+        "shortDescription": "Flachgewebter Teppich aus reiner Sisal-Faser.",
+        "inStock": true
+      },
+      "categoryUids": ["MTU2NA=="],
+      "facets": {
+        "colors": [
+          { "label": "Natur", "value": "natur" }
+        ],
+        "rooms": [
+          { "label": "Esszimmer", "value": "esszimmer" },
+          { "label": "Flur", "value": "flur" }
+        ],
+        "materials": [
+          { "label": "Sisal", "value": "sisal" }
+        ],
+        "sizes": [
+          { "label": "160 x 230 cm", "value": "160x230" }
+        ]
+      },
+      "keywords": ["sisal", "jara", "natur"]
+    },
+    {
+      "summary": {
+        "name": "Designer Teppich Ava",
+        "sku": "BN-AVA-BASE",
+        "urlKey": "designer-teppich-ava",
+        "imageUrl": "/sample-image.jpg",
+        "hoverImageUrl": "/sample-image.jpg",
+        "price": { "value": 399.0, "currency": "EUR" },
+        "badges": ["Premium"],
+        "shortDescription": "Geometrische Intarsien mit Reliefstruktur.",
+        "inStock": true,
+        "variants": [
+          {
+            "colorLabel": "Saphir",
+            "colorValue": 25,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 399.0, "currency": "EUR" },
+            "name": "Ava Saphir 200x300",
+            "sku": "BN-AVA-SAPHIR-200X300",
+            "urlKey": "designer-teppich-ava-saphir-200x300"
+          },
+          {
+            "colorLabel": "Amber",
+            "colorValue": 26,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 379.0, "currency": "EUR" },
+            "name": "Ava Amber 170x240",
+            "sku": "BN-AVA-AMBER-170X240",
+            "urlKey": "designer-teppich-ava-amber-170x240"
+          }
+        ]
+      },
+      "categoryUids": ["MTU2NA=="],
+      "facets": {
+        "colors": [
+          { "label": "Saphir", "value": "saphir" },
+          { "label": "Amber", "value": "amber" }
+        ],
+        "rooms": [
+          { "label": "Wohnzimmer", "value": "wohnzimmer" },
+          { "label": "Loft", "value": "loft" }
+        ],
+        "materials": [
+          { "label": "Wolle", "value": "wolle" },
+          { "label": "Viskose", "value": "viskose" }
+        ],
+        "sizes": [
+          { "label": "200 x 300 cm", "value": "200x300" },
+          { "label": "170 x 240 cm", "value": "170x240" }
+        ]
+      },
+      "keywords": ["ava", "designer", "relief"]
+    },
+    {
+      "summary": {
+        "name": "Handgeknüpfter Teppich Nara",
+        "sku": "BN-NARA-BASE",
+        "urlKey": "handgeknuepfter-teppich-nara",
+        "imageUrl": "/sample-image.jpg",
+        "hoverImageUrl": "/sample-image.jpg",
+        "price": { "value": 699.0, "currency": "EUR" },
+        "badges": ["Handknotted"],
+        "shortDescription": "Aufwendiges Kelim-Motiv aus fair gehandelter Wolle.",
+        "inStock": true
+      },
+      "categoryUids": ["MTU2NA=="],
+      "facets": {
+        "colors": [
+          { "label": "Multicolor", "value": "multicolor" }
+        ],
+        "rooms": [
+          { "label": "Wohnzimmer", "value": "wohnzimmer" },
+          { "label": "Atelier", "value": "atelier" }
+        ],
+        "materials": [
+          { "label": "Wolle", "value": "wolle" }
+        ],
+        "sizes": [
+          { "label": "200 x 300 cm", "value": "200x300" }
+        ]
+      },
+      "keywords": ["handgeknuepft", "nara", "kelim"]
+    },
+    {
+      "summary": {
+        "name": "Badematte Luma",
+        "sku": "BN-LUMA-BASE",
+        "urlKey": "badematte-luma",
+        "imageUrl": "/sample-image.jpg",
+        "hoverImageUrl": "/sample-image.jpg",
+        "price": { "value": 59.95, "currency": "EUR" },
+        "badges": ["Spa"],
+        "shortDescription": "Schnelltrocknende Mikrofaser-Badematte mit Memory-Foam.",
+        "inStock": true,
+        "variants": [
+          {
+            "colorLabel": "Weiß",
+            "colorValue": 27,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 59.95, "currency": "EUR" },
+            "name": "Luma Weiß 70x120",
+            "sku": "BN-LUMA-WEISS-70X120",
+            "urlKey": "badematte-luma-weiss-70x120"
+          },
+          {
+            "colorLabel": "Aqua",
+            "colorValue": 28,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 54.95, "currency": "EUR" },
+            "name": "Luma Aqua 60x100",
+            "sku": "BN-LUMA-AQUA-60X100",
+            "urlKey": "badematte-luma-aqua-60x100"
+          }
+        ]
+      },
+      "categoryUids": ["MTI1Mg=="],
+      "facets": {
+        "colors": [
+          { "label": "Weiß", "value": "weiss" },
+          { "label": "Aqua", "value": "aqua" }
+        ],
+        "rooms": [
+          { "label": "Bad", "value": "bad" }
+        ],
+        "materials": [
+          { "label": "Mikrofaser", "value": "mikrofaser" }
+        ],
+        "sizes": [
+          { "label": "70 x 120 cm", "value": "70x120" },
+          { "label": "60 x 100 cm", "value": "60x100" }
+        ]
+      },
+      "keywords": ["badematte", "luma", "spa"]
+    },
+    {
+      "summary": {
+        "name": "Deko Plaid Mira",
+        "sku": "BN-MIRA-BASE",
+        "urlKey": "deko-plaid-mira",
+        "imageUrl": "/sample-image.jpg",
+        "hoverImageUrl": "/sample-image.jpg",
+        "price": { "value": 79.95, "currency": "EUR" },
+        "badges": ["Cozy"],
+        "shortDescription": "Wohndecke aus Baumwollmix mit Fransenabschluss.",
+        "inStock": true,
+        "variants": [
+          {
+            "colorLabel": "Oliv",
+            "colorValue": 29,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 79.95, "currency": "EUR" },
+            "name": "Mira Oliv",
+            "sku": "BN-MIRA-OLIV",
+            "urlKey": "deko-plaid-mira-oliv"
+          },
+          {
+            "colorLabel": "Senf",
+            "colorValue": 30,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 74.95, "currency": "EUR" },
+            "name": "Mira Senf",
+            "sku": "BN-MIRA-SENF",
+            "urlKey": "deko-plaid-mira-senf"
+          }
+        ]
+      },
+      "categoryUids": ["MTI1Mg=="],
+      "facets": {
+        "colors": [
+          { "label": "Oliv", "value": "oliv" },
+          { "label": "Senf", "value": "senf" }
+        ],
+        "rooms": [
+          { "label": "Wohnzimmer", "value": "wohnzimmer" },
+          { "label": "Balkon", "value": "balkon" }
+        ],
+        "materials": [
+          { "label": "Baumwolle", "value": "baumwolle" }
+        ],
+        "sizes": [
+          { "label": "130 x 170 cm", "value": "130x170" }
+        ]
+      },
+      "keywords": ["plaid", "mira", "decke"]
+    },
+    {
+      "summary": {
+        "name": "Keramikvase Rho",
+        "sku": "BN-RHO-BASE",
+        "urlKey": "keramikvase-rho",
+        "imageUrl": "/sample-image.jpg",
+        "hoverImageUrl": "/sample-image.jpg",
+        "price": { "value": 34.95, "currency": "EUR" },
+        "badges": ["Statement"],
+        "shortDescription": "Skulpturale Vase mit matter Oberfläche.",
+        "inStock": true
+      },
+      "categoryUids": ["MTI1Mg=="],
+      "facets": {
+        "colors": [
+          { "label": "Mattschwarz", "value": "mattschwarz" }
+        ],
+        "rooms": [
+          { "label": "Wohnzimmer", "value": "wohnzimmer" },
+          { "label": "Esszimmer", "value": "esszimmer" }
+        ],
+        "materials": [
+          { "label": "Keramik", "value": "keramik" }
+        ],
+        "sizes": [
+          { "label": "30 cm", "value": "30cm" }
+        ]
+      },
+      "keywords": ["vase", "rho", "keramik"]
+    },
+    {
+      "summary": {
+        "name": "Raumduft Senso",
+        "sku": "BN-SENSO-BASE",
+        "urlKey": "raumduft-senso",
+        "imageUrl": "/sample-image.jpg",
+        "hoverImageUrl": "/sample-image.jpg",
+        "price": { "value": 24.95, "currency": "EUR" },
+        "badges": ["New"],
+        "shortDescription": "Diffusor mit Bergamotte und Amber.",
+        "inStock": true
+      },
+      "categoryUids": ["MTI1Mg=="],
+      "facets": {
+        "colors": [
+          { "label": "Amber", "value": "amber" }
+        ],
+        "rooms": [
+          { "label": "Wohnzimmer", "value": "wohnzimmer" },
+          { "label": "Bad", "value": "bad" }
+        ],
+        "materials": [
+          { "label": "Essence", "value": "essence" }
+        ],
+        "sizes": [
+          { "label": "100 ml", "value": "100ml" }
+        ]
+      },
+      "keywords": ["raumduft", "senso", "diffusor"]
+    },
+    {
+      "summary": {
+        "name": "Tischleuchte Luna",
+        "sku": "BN-LUNA-BASE",
+        "urlKey": "tischleuchte-luna",
+        "imageUrl": "/sample-image.jpg",
+        "hoverImageUrl": "/sample-image.jpg",
+        "price": { "value": 129.95, "currency": "EUR" },
+        "badges": ["Lighting"],
+        "shortDescription": "Opalglasleuchte mit dimmbarem Touch-Fuß.",
+        "inStock": true
+      },
+      "categoryUids": ["MTI1Mg=="],
+      "facets": {
+        "colors": [
+          { "label": "Opal", "value": "opal" }
+        ],
+        "rooms": [
+          { "label": "Wohnzimmer", "value": "wohnzimmer" },
+          { "label": "Schlafzimmer", "value": "schlafzimmer" }
+        ],
+        "materials": [
+          { "label": "Glas", "value": "glas" }
+        ],
+        "sizes": [
+          { "label": "H 42 cm", "value": "42cm" }
+        ]
+      },
+      "keywords": ["leuchte", "luna", "opal"]
+    },
+    {
+      "summary": {
+        "name": "Outdoor Kissen Riva",
+        "sku": "BN-RIVA-BASE",
+        "urlKey": "outdoor-kissen-riva",
+        "imageUrl": "/sample-image.jpg",
+        "hoverImageUrl": "/sample-image.jpg",
+        "price": { "value": 44.95, "currency": "EUR" },
+        "badges": ["Outdoor"],
+        "shortDescription": "UV-beständiges Outdoor-Kissen mit wasserabweisendem Bezug.",
+        "inStock": true,
+        "variants": [
+          {
+            "colorLabel": "Marine",
+            "colorValue": 31,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 44.95, "currency": "EUR" },
+            "name": "Riva Marine 50x50",
+            "sku": "BN-RIVA-MARINE-50X50",
+            "urlKey": "outdoor-kissen-riva-marine-50x50"
+          },
+          {
+            "colorLabel": "Gelb",
+            "colorValue": 32,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 39.95, "currency": "EUR" },
+            "name": "Riva Gelb 40x60",
+            "sku": "BN-RIVA-GELB-40X60",
+            "urlKey": "outdoor-kissen-riva-gelb-40x60"
+          }
+        ]
+      },
+      "categoryUids": ["MTI1Mg=="],
+      "facets": {
+        "colors": [
+          { "label": "Marine", "value": "marine" },
+          { "label": "Gelb", "value": "gelb" }
+        ],
+        "rooms": [
+          { "label": "Outdoor", "value": "outdoor" },
+          { "label": "Wohnzimmer", "value": "wohnzimmer" }
+        ],
+        "materials": [
+          { "label": "Polyester", "value": "polyester" }
+        ],
+        "sizes": [
+          { "label": "50 x 50 cm", "value": "50x50" },
+          { "label": "40 x 60 cm", "value": "40x60" }
+        ]
+      },
+      "keywords": ["outdoor", "kissen", "riva"]
+    },
+    {
+      "summary": {
+        "name": "Sideboard Tray Kori",
+        "sku": "BN-KORI-BASE",
+        "urlKey": "sideboard-tray-kori",
+        "imageUrl": "/sample-image.jpg",
+        "hoverImageUrl": "/sample-image.jpg",
+        "price": { "value": 54.95, "currency": "EUR" },
+        "badges": ["Decor"],
+        "shortDescription": "Metalltablett mit erhöhem Rand als Bühne für Deko.",
+        "inStock": true
+      },
+      "categoryUids": ["MTI1Mg=="],
+      "facets": {
+        "colors": [
+          { "label": "Messing", "value": "messing" }
+        ],
+        "rooms": [
+          { "label": "Wohnzimmer", "value": "wohnzimmer" },
+          { "label": "Flur", "value": "flur" }
+        ],
+        "materials": [
+          { "label": "Metall", "value": "metall" }
+        ],
+        "sizes": [
+          { "label": "Ø 45 cm", "value": "45cm" }
+        ]
+      },
+      "keywords": ["tablett", "kori", "messing"]
+    },
+    {
+      "summary": {
+        "name": "LED Kerze Halo",
+        "sku": "BN-HALO-BASE",
+        "urlKey": "led-kerze-halo",
+        "imageUrl": "/sample-image.jpg",
+        "hoverImageUrl": "/sample-image.jpg",
+        "price": { "value": 19.95, "currency": "EUR" },
+        "badges": ["Safe"],
+        "shortDescription": "Akku-Laterne mit realistischem Flackereffekt.",
+        "inStock": true
+      },
+      "categoryUids": ["MTI1Mg=="],
+      "facets": {
+        "colors": [
+          { "label": "Creme", "value": "creme" }
+        ],
+        "rooms": [
+          { "label": "Wohnzimmer", "value": "wohnzimmer" },
+          { "label": "Outdoor", "value": "outdoor" }
+        ],
+        "materials": [
+          { "label": "Wachs", "value": "wachs" }
+        ],
+        "sizes": [
+          { "label": "H 15 cm", "value": "15cm" }
+        ]
+      },
+      "keywords": ["kerze", "halo", "led"]
+    },
+    {
+      "summary": {
+        "name": "Sitzpouf Nomi",
+        "sku": "BN-NOMI-BASE",
+        "urlKey": "sitzpouf-nomi",
+        "imageUrl": "/sample-image.jpg",
+        "hoverImageUrl": "/sample-image.jpg",
+        "price": { "value": 149.95, "currency": "EUR" },
+        "badges": ["Seating"],
+        "shortDescription": "Handgewebter Pouf gefüllt mit recycelten Fasern.",
+        "inStock": true,
+        "variants": [
+          {
+            "colorLabel": "Terracotta",
+            "colorValue": 33,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 149.95, "currency": "EUR" },
+            "name": "Nomi Terracotta",
+            "sku": "BN-NOMI-TERRA",
+            "urlKey": "sitzpouf-nomi-terracotta"
+          },
+          {
+            "colorLabel": "Azur",
+            "colorValue": 34,
+            "imageUrl": "/sample-image.jpg",
+            "hoverImageUrl": "/sample-image.jpg",
+            "price": { "value": 139.95, "currency": "EUR" },
+            "name": "Nomi Azur",
+            "sku": "BN-NOMI-AZUR",
+            "urlKey": "sitzpouf-nomi-azur"
+          }
+        ]
+      },
+      "categoryUids": ["MTI1Mg=="],
+      "facets": {
+        "colors": [
+          { "label": "Terracotta", "value": "terracotta" },
+          { "label": "Azur", "value": "azur" }
+        ],
+        "rooms": [
+          { "label": "Wohnzimmer", "value": "wohnzimmer" },
+          { "label": "Kinderzimmer", "value": "kinderzimmer" }
+        ],
+        "materials": [
+          { "label": "Baumwolle", "value": "baumwolle" }
+        ],
+        "sizes": [
+          { "label": "60 x 60 x 35 cm", "value": "60x60x35" }
+        ]
+      },
+      "keywords": ["pouf", "nomi", "sitz"]
+    },
+    {
+      "summary": {
+        "name": "Makramee Wandbehang Lea",
+        "sku": "BN-LEA-BASE",
+        "urlKey": "makramee-wandbehang-lea",
+        "imageUrl": "/sample-image.jpg",
+        "hoverImageUrl": "/sample-image.jpg",
+        "price": { "value": 64.95, "currency": "EUR" },
+        "badges": ["Boho"],
+        "shortDescription": "Handgeknüpfter Wandbehang mit Holzstab.",
+        "inStock": true
+      },
+      "categoryUids": ["MTI1Mg=="],
+      "facets": {
+        "colors": [
+          { "label": "Creme", "value": "creme" }
+        ],
+        "rooms": [
+          { "label": "Wohnzimmer", "value": "wohnzimmer" },
+          { "label": "Flur", "value": "flur" }
+        ],
+        "materials": [
+          { "label": "Baumwolle", "value": "baumwolle" }
+        ],
+        "sizes": [
+          { "label": "70 x 120 cm", "value": "70x120" }
+        ]
+      },
+      "keywords": ["wandbehang", "makramee", "lea"]
+    },
+    {
+      "summary": {
+        "name": "Wandspiegel Orla",
+        "sku": "BN-ORLA-BASE",
+        "urlKey": "wandspiegel-orla",
+        "imageUrl": "/sample-image.jpg",
+        "hoverImageUrl": "/sample-image.jpg",
+        "price": { "value": 199.95, "currency": "EUR" },
+        "badges": ["Mirror"],
+        "shortDescription": "Organischer Spiegel mit Metallrahmen.",
+        "inStock": true
+      },
+      "categoryUids": ["MTI1Mg=="],
+      "facets": {
+        "colors": [
+          { "label": "Gold", "value": "gold" }
+        ],
+        "rooms": [
+          { "label": "Flur", "value": "flur" },
+          { "label": "Schlafzimmer", "value": "schlafzimmer" }
+        ],
+        "materials": [
+          { "label": "Metall", "value": "metall" },
+          { "label": "Glas", "value": "glas" }
+        ],
+        "sizes": [
+          { "label": "80 x 110 cm", "value": "80x110" }
+        ]
+      },
+      "keywords": ["spiegel", "orla", "organisch"]
+    },
+    {
+      "summary": {
+        "name": "Serviertablett Aiko",
+        "sku": "BN-AIKO-BASE",
+        "urlKey": "serviertablett-aiko",
+        "imageUrl": "/sample-image.jpg",
+        "hoverImageUrl": "/sample-image.jpg",
+        "price": { "value": 44.95, "currency": "EUR" },
+        "badges": ["Serve"],
+        "shortDescription": "Rundes Tablett aus Mangoholz mit Ledergriffen.",
+        "inStock": true
+      },
+      "categoryUids": ["MTI1Mg=="],
+      "facets": {
+        "colors": [
+          { "label": "Natur", "value": "natur" }
+        ],
+        "rooms": [
+          { "label": "Esszimmer", "value": "esszimmer" },
+          { "label": "Küche", "value": "kuche" }
+        ],
+        "materials": [
+          { "label": "Holz", "value": "holz" }
+        ],
+        "sizes": [
+          { "label": "Ø 38 cm", "value": "38cm" }
+        ]
+      },
+      "keywords": ["tablett", "aiko", "mango"]
+    },
+    {
+      "summary": {
+        "name": "Rahmenloses Bildset Duo",
+        "sku": "BN-DUO-BASE",
+        "urlKey": "rahmenloses-bildset-duo",
+        "imageUrl": "/sample-image.jpg",
+        "hoverImageUrl": "/sample-image.jpg",
+        "price": { "value": 59.95, "currency": "EUR" },
+        "badges": ["Art"],
+        "shortDescription": "Set aus zwei Kunstdrucken mit abstrakten Formen.",
+        "inStock": true
+      },
+      "categoryUids": ["MTI1Mg=="],
+      "facets": {
+        "colors": [
+          { "label": "Multi", "value": "multi" }
+        ],
+        "rooms": [
+          { "label": "Wohnzimmer", "value": "wohnzimmer" },
+          { "label": "Home Office", "value": "homeoffice" }
+        ],
+        "materials": [
+          { "label": "Papier", "value": "papier" }
+        ],
+        "sizes": [
+          { "label": "40 x 50 cm", "value": "40x50" }
+        ]
+      },
+      "keywords": ["bild", "duo", "kunst"]
+    }
+  ]
+}

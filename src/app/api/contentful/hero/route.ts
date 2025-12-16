@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { MOCK_HERO_BANNERS } from "../../../../data/mock-contentful";
 
 const HERO_QUERY = `
   query HeroBanner {
@@ -28,10 +29,8 @@ export async function GET() {
   const token = process.env.CONTENTFUL_CDA_TOKEN;
 
   if (!spaceId || !token) {
-    return NextResponse.json(
-      { error: "Contentful credentials are missing" },
-      { status: 500 }
-    );
+    console.warn("[Contentful Hero] Missing credentials, using mock data.");
+    return NextResponse.json({ heroes: MOCK_HERO_BANNERS });
   }
 
   const endpoint = `https://graphql.contentful.com/content/v1/spaces/${spaceId}/environments/${envId}`;
@@ -50,10 +49,7 @@ export async function GET() {
 
     if (!response.ok || payload.errors) {
       console.error("Contentful hero query failed", payload.errors ?? payload);
-      return NextResponse.json(
-        { error: "Failed to load Contentful hero" },
-        { status: 500 }
-      );
+      return NextResponse.json({ heroes: MOCK_HERO_BANNERS });
     }
 
     const heroes = payload.data?.heroBannerCollection?.items ?? [];
@@ -61,9 +57,6 @@ export async function GET() {
     return NextResponse.json({ heroes });
   } catch (error) {
     console.error("Contentful hero fetch error", error);
-    return NextResponse.json(
-      { error: "Failed to load Contentful hero" },
-      { status: 500 }
-    );
+    return NextResponse.json({ heroes: MOCK_HERO_BANNERS });
   }
 }

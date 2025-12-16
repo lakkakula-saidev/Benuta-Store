@@ -72,9 +72,10 @@ export type UrlResolverResponse = {
   } | null;
 };
 
-export type ProductDetail = import("../components/product-card").ProductSummary & {
-  descriptionHtml?: string | null;
-  gallery: string[];
-  relatedProducts?: import("../components/product-card").ProductSummary[];
-  variantChoices?: import("../components/product-card").ProductSummary["variants"];
-};
+export type ProductDetail =
+  import("../components/product-card").ProductSummary & {
+    descriptionHtml?: string | null;
+    gallery: string[];
+    relatedProducts?: import("../components/product-card").ProductSummary[];
+    variantChoices?: import("../components/product-card").ProductSummary["variants"];
+  };

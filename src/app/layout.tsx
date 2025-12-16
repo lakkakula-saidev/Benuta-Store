@@ -14,10 +14,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Benuta Store - Premium Carpets & Rugs",
+  title: "Shopper Store - Premium Carpets & Rugs",
   description:
-    "Discover premium carpets and home accessories at Benuta Store. Quality rugs for every room in your home.",
-  keywords: "carpets, rugs, home decor, benuta, teppiche, wohnaccessoires",
+    "Discover premium carpets and home accessories at Shopper Store. Quality rugs for every room in your home.",
+  keywords: "carpets, rugs, home decor, shopper, teppiche, wohnaccessoires",
   icons: {
     icon: "/favicon.svg"
   }

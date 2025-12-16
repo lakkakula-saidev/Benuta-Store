@@ -34,9 +34,7 @@ function normalizeName(name: string | null | undefined) {
   return (name ?? "").trim().toLowerCase();
 }
 
-export function groupProductsByName(
-  items: ProductSummary[]
-): ProductSummary[] {
+export function groupProductsByName(items: ProductSummary[]): ProductSummary[] {
   const grouped = new Map<string, ProductSummary>();
 
   items.forEach((item) => {
@@ -170,9 +168,10 @@ function splitName(name: string): { baseName: string; detail?: string } {
   }
 
   const baseName = parts.join(" ").trim() || trimmed;
-  const detailPieces = [colors.join(" ") || null, sizeMatch?.[1] ?? null].filter(
-    Boolean
-  ) as string[];
+  const detailPieces = [
+    colors.join(" ") || null,
+    sizeMatch?.[1] ?? null
+  ].filter(Boolean) as string[];
   const detail = detailPieces.length ? detailPieces.join(" • ") : undefined;
 
   return { baseName, detail };
@@ -200,7 +199,10 @@ export function mapAggregationOptions(
     ProductsQueryResponse["products"]["aggregations"]
   >[number]["options"]
 ) {
-  const map = new Map<string, { label: string; value: string; count?: number }>();
+  const map = new Map<
+    string,
+    { label: string; value: string; count?: number }
+  >();
   (options ?? []).forEach((opt) => {
     if (!opt?.label || !opt?.value) return;
     const key = String(opt.value);

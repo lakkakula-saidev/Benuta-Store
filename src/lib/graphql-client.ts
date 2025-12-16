@@ -45,7 +45,9 @@ export async function graphqlFetch<TData>({
 
   const response = await fetch(fetchTarget, {
     method: "POST",
-    headers: shouldProxy ? { "Content-Type": "application/json" } : mergedHeaders,
+    headers: shouldProxy
+      ? { "Content-Type": "application/json" }
+      : mergedHeaders,
     body,
     cache: shouldProxy ? undefined : cache,
     next: shouldProxy ? undefined : next
@@ -61,7 +63,10 @@ export async function graphqlFetch<TData>({
   if (!response.ok) {
     const message =
       json.errors?.[0]?.message ?? response.statusText ?? "Unknown error";
-    console.error("GraphQL fetch failed", { status: response.status, errors: json.errors });
+    console.error("GraphQL fetch failed", {
+      status: response.status,
+      errors: json.errors
+    });
     throw new Error(`GraphQL request failed: ${message}`);
   }
 

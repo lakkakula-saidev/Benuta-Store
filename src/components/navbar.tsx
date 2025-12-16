@@ -1,4 +1,4 @@
-/* Simple benuta-like navigation bar with sticky behavior */
+/* Simple Shopper-like navigation bar with sticky behavior */
 "use client";
 
 import { ReactNode, forwardRef, useEffect, useRef, useState } from "react";
@@ -120,9 +120,9 @@ export function NavBar({
           className={`text-2xl font-semibold tracking-tight ${
             isTransparent ? "text-white" : "text-slate-900"
           }`}
-          aria-label="Benuta home"
+          aria-label="Shopper home"
         >
-          benuta
+          Shopper
         </Link>
 
         <nav className="hidden flex-1 items-center gap-6 lg:flex">
